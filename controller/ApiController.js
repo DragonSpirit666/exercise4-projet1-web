@@ -25,8 +25,6 @@ module.exports.store = (req, res) => {
   };
 
   module.exports.show = (req, res) => {
-    res.json({ msg: "post", body: req.body });
-
     const id = parseInt(req.params.id);
     const character = charactersData.find(char => char.id === id);
     if (!character) {
@@ -37,6 +35,17 @@ module.exports.store = (req, res) => {
   };
 
   module.exports.delete = (req, res) => {
-    res.status(405);
-    res.json({ msg: "update", body: req.body });
+    const id = parseInt(req.params.id);
+    const index = charactersData.findIndex(char => char.id === id);
+
+    module.exports.show(req, res);
+
+    if (index === -1) {
+      res.status(404).json({ error: 'Personnage pas trouvé' });
+    } else {
+      charactersData.splice(index, 1);
+      res.status(204).send();
+    }
+
+    // res.status(405);
   };

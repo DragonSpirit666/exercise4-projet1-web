@@ -8,7 +8,7 @@ router
   .post(apiController.store);
 
 router
-  .route("/personnage/:id")
+  .route("/personnages/:id")
   .get(apiController.show)
   .put(apiController.update)
   .delete(apiController.delete)

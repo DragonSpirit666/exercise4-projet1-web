@@ -6,7 +6,16 @@ module.exports.store = (req, res) => {
   res.json({ msg: "post", body: req.body });
 };
 
-module.exports.update = (req, res) => {
-  res.status(405);
-  res.json({ msg: "update", body: req.body });
-};
+  module.exports.update = (req, res) => {
+    res.status(405);
+    res.json({ msg: "update", body: req.body });
+  };
+
+  module.exports.show = (req, res) => {
+    res.json({ msg: "post", body: req.body });
+  };
+
+  module.exports.delete = (req, res) => {
+    res.status(405);
+    res.json({ msg: "update", body: req.body });
+  };

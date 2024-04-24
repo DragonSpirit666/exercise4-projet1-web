@@ -20,7 +20,6 @@ module.exports.store = (req, res) => {
 };
 
   module.exports.update = (req, res) => {
-    res.status(405);
     res.json({ msg: "update", body: req.body });
   };
 
@@ -35,17 +34,6 @@ module.exports.store = (req, res) => {
   };
 
   module.exports.delete = (req, res) => {
-    const id = parseInt(req.params.id);
-    const index = charactersData.findIndex(char => char.id === id);
-
-    module.exports.show(req, res);
-
-    if (index === -1) {
-      res.status(404).json({ error: 'Personnage pas trouvé' });
-    } else {
-      charactersData.splice(index, 1);
-      res.status(204).send();
-    }
-
-    // res.status(405);
+    res.status(405);
+    res.json({ msg: "update", body: req.body });
   };

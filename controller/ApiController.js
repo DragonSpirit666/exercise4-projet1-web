@@ -18,7 +18,7 @@ module.exports.store = (req, res) => {
 };
 
   module.exports.update = (req, res) => {
-    const { name, realname } = req.body;
+    let { name, realname } = req.body;
     const id = parseInt(req.params.id);
     const character = charactersData.find(char => char.id === id);
 

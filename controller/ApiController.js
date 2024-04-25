@@ -6,8 +6,6 @@ module.exports.index = (req, res) => {
 };
 
 module.exports.store = (req, res) => {
-  res.json({ msg: "post", body: req.body });
-
   const { name, realname } = req.body;
   if (!name) {
     res.status(400).json({ error: 'Le nom est requis' });
@@ -20,7 +18,13 @@ module.exports.store = (req, res) => {
 };
 
   module.exports.update = (req, res) => {
-    res.json({ msg: "update", body: req.body });
+    const id = parseInt(req.params.id);
+    const character = charactersData.find(char => char.id === id);
+    if (!character) {
+      res.status(404).json({ error: 'Personnage pas trouvé' });
+    } else {
+      res.json(character);
+    }
   };
 
   module.exports.show = (req, res) => {
@@ -34,6 +38,11 @@ module.exports.store = (req, res) => {
   };
 
   module.exports.delete = (req, res) => {
-    res.status(405);
-    res.json({ msg: "update", body: req.body });
+    const id = parseInt(req.params.id);
+    const character = charactersData.find(char => char.id === id);
+    if (!character) {
+      res.status(404).json({ error: 'Personnage pas trouvé' });
+    } else {
+      res.json(character);
+    }
   };

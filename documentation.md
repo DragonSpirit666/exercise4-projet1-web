@@ -1,0 +1,4 @@
+# GET /personnages
+
+# POST /personnages
+

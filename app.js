@@ -1,5 +1,4 @@
-// Pour chaque point d’entrée, vous devez fournir la documentation appropriée selon le gabarit vu en
-// classe. La documentation doit donc être produite en Markdown.
+// Justin Morand et Zachary Deschênes-Tremblay
 
 require("dotenv").config();
 

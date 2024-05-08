@@ -28,7 +28,6 @@ module.exports.store = (req, res) => {
     res.status(201).json(newCharacter);
   }
 };
-
 /**
  * Met à jour un personnage.
  *
@@ -36,26 +35,20 @@ module.exports.store = (req, res) => {
  * @param {Object} res Réponse à la requête.
  */
 module.exports.update = (req, res) => {
-  let { name, realname } = req.body;
   const id = parseInt(req.params.id);
+  const { name, realname } = req.body;
   const character = charactersData.find(char => char.id === id);
 
   if (!character) {
-    res.status(404).json({ error: 'Personnage pas trouvé' });
-  } else {
-    if (!realname) {
-      realname = character.realname;
-    } else if (!name) {
-      name = character.name;
-    }
-
     const newCharacter = { id, name, realname };
-    charactersData.splice(charactersData.indexOf(character), 1);
     charactersData.push(newCharacter);
-    res.json(newCharacter);
+    res.status(201).json(newCharacter);
+  } else {
+    character.name = name;
+    character.realname = realname;
+    res.status(200).json(character);
   }
 };
-
 /**
  * Affiche un personnage.
  *
@@ -68,10 +61,9 @@ module.exports.show = (req, res) => {
   if (!character) {
     res.status(404).json({ error: 'Personnage pas trouvé' });
   } else {
-    res.json(character);
+    res.status(200).json(character);
   }
 };
-
 /**
  * Supprime un personnage.
  *
@@ -79,12 +71,13 @@ module.exports.show = (req, res) => {
  * @param {Object} res Réponse à la requête.
  */
 module.exports.delete = (req, res) => {
+  res.status(405);
   const id = parseInt(req.params.id);
   const character = charactersData.find(char => char.id === id);
   if (!character) {
     res.status(404).json({ error: 'Personnage pas trouvé' });
   } else {
-    charactersData.splice(charactersData.indexOf(character), 1);
-    res.json(character);
+    charactersData.delete(req.params.id);
+    res.status(200).json(character);
   }
 };

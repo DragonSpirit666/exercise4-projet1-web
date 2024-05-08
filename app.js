@@ -4,11 +4,13 @@ require("dotenv").config();
 
 const express = require("express");
 const helmet = require("helmet");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT;
 const apiRouter = require("./routes/api");
 
+app.use(cors());
 app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 

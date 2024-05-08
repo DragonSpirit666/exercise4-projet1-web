@@ -1,7 +1,18 @@
-Pour chaque point d’entrée, vous devez fournir la documentation appropriée selon le gabarit vu en
-classe. La documentation doit donc être produite en Markdown.
+# Description
+Cet API sert à accéder à des personnages variés.
+
+# Démarrage
+Vous devez entrez les commandes suivantes dans le dossier parent :
+> npm i
+> npm run start
 
 # GET /personnages
 
+
 # POST /personnages
+**Paramètres de données :**
+- name (requis)
+- realname (optionnel)
+**Réponse de succès :**
+Code 200
 

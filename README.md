@@ -1,5 +1,5 @@
 # Description
-Cet API sert à accéder à des personnages variés.
+Cet API sert à accéder à faire la gestion de personnages.
 
 # Démarrage
 Vous devez entrez les commandes suivantes dans le dossier parent :

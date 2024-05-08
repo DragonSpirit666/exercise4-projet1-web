@@ -3,8 +3,8 @@ Cet API sert à accéder à des personnages variés.
 
 # Démarrage
 Vous devez entrez les commandes suivantes dans le dossier parent :
-> npm i
-> npm run start
+- `npm i`
+- `npm run start`
 
 ## Liste des Personnages
 
